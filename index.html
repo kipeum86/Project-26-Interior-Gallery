@@ -25,7 +25,7 @@
     body {
       font-family: "Instrument Sans", sans-serif;
       -webkit-font-smoothing: antialiased;
-      background-color: #6B5B50; /* Initial fallback */
+      background-color: #2E2A27; /* Updated initial fallback to dark tone */
     }
 
     .slider {
@@ -50,7 +50,7 @@
       width: 48px;
       height: 48px;
       border-radius: 50%;
-      border: 1px solid rgba(255, 255, 255, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.6); /* Increased contrast */
       background: none;
       cursor: none;
       display: flex;
@@ -62,19 +62,19 @@
     }
 
     .slider__menu:hover {
-      border-color: rgba(255, 255, 255, 0.8);
+      border-color: rgba(255, 255, 255, 1);
     }
 
     .slider__menu span {
       width: 18px;
       height: 1px;
-      background: rgba(255, 255, 255, 0.8);
+      background: rgba(255, 255, 255, 0.9); /* Increased contrast */
     }
 
     .slider__label {
       font-size: 11px;
       letter-spacing: 1.5px;
-      color: rgba(255, 255, 255, 0.7);
+      color: rgba(255, 255, 255, 0.9); /* Increased contrast from 0.7 */
       text-transform: uppercase;
       display: none;
     }
@@ -101,7 +101,8 @@
     .slider__title {
       font-size: clamp(28px, 5vw, 64px); 
       font-weight: 700;
-      color: rgba(255, 255, 255, 0.35);
+      color: rgba(255, 255, 255, 0.95); /* Increased contrast from 0.35 */
+      text-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15); /* Added shadow for readability */
       line-height: 1.15;
       letter-spacing: -0.02em;
       overflow: hidden;
@@ -125,7 +126,7 @@
     .slider__description {
       font-size: 10px;
       letter-spacing: 1.2px;
-      color: rgba(255, 255, 255, 0.6);
+      color: rgba(255, 255, 255, 0.9); /* Increased contrast from 0.6 */
       line-height: 1.6;
       text-transform: uppercase;
     }
@@ -133,7 +134,7 @@
     .slider__location {
       font-size: 10px;
       letter-spacing: 1.2px;
-      color: rgba(255, 255, 255, 0.6);
+      color: rgba(255, 255, 255, 0.9); /* Increased contrast from 0.6 */
       line-height: 1.6;
       text-transform: uppercase;
       margin-top: 12px;
@@ -146,16 +147,18 @@
       width: 80px;
       height: 80px;
       border-radius: 50%;
-      border: 1px solid rgba(255, 255, 255, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.5); /* Increased contrast */
       display: flex;
       align-items: center;
       justify-content: center;
       pointer-events: none;
       will-change: transform;
       z-index: 10;
-      color: rgba(255, 255, 255, 0.6);
+      color: rgba(255, 255, 255, 0.9); /* Increased contrast */
       font-size: 24px;
       font-weight: 400;
+      background-color: rgba(0, 0, 0, 0.1); /* Subtle backdrop */
+      backdrop-filter: blur(2px);
     }
 
     .slider__right {
@@ -187,11 +190,18 @@
       contain: layout style;
     }
 
+    .slider__slide--portrait {
+      width: 65%;
+      aspect-ratio: 3 / 4;
+      max-height: 80vh;
+    }
+
     .slider__slide img {
       width: 100%;
       height: 100%;
-      object-fit: contain;
-      filter: drop-shadow(0 15px 30px rgba(0,0,0,0.15)) brightness(0.95);
+      object-fit: cover; /* Changed from contain to cover for better modern feel */
+      filter: drop-shadow(0 20px 40px rgba(0,0,0,0.3)) brightness(0.95);
+      border-radius: 4px; /* Added subtle rounding */
     }
 
     @media screen and (min-width: 768px) {
@@ -213,6 +223,10 @@
 
       .slider__slide {
         width: 85%;
+      }
+
+      .slider__slide--portrait {
+        width: 50%;
       }
 
       .slider__cursor {
@@ -246,6 +260,10 @@
       .slider__slide {
         width: 90%;
       }
+
+      .slider__slide--portrait {
+        width: 45%; /* 데스크탑 화면에서 보기 좋게 폭을 조절 */
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -274,7 +292,6 @@
         <div class="slider__footer">
           <div class="slider__info">
             <p class="slider__description">NEW APARTMENT INTERIOR<br>RENOVATION PROJECT<br>COMPLETED IN 2026</p>
-            <!-- Updated the text here -->
             <p class="slider__location">THOUGHTFULLY<br>CRAFTED SPACES.</p>
           </div>
         </div>
@@ -317,23 +334,25 @@
       };
     };
 
+    // Updated SLIDES with darker backgrounds for better contrast
+    // Restored all images to imgur URLs as requested so they render properly
     const SLIDES = [
-      { name: "Living Room", color: "#A8B0AC", image: "https://imgur.com/frbFY3D.jpg" },
-      { name: "Lounge Area", color: "#B8B0A5", image: "https://imgur.com/7PvqOpd.jpg" },
-      { name: "Hallway View", color: "#8E9492", image: "https://imgur.com/2kPrZCo.jpg" },
-      { name: "Entrance", color: "#6A645D", image: "https://imgur.com/9tmQPMt.jpg" },
-      { name: "Kitchen View", color: "#ADA398", image: "https://imgur.com/iiuMK2Z.jpg" },
-      { name: "Modern Kitchen", color: "#999E9F", image: "https://imgur.com/WcLSAxj.jpg" },
-      { name: "Countertop", color: "#B5A9A4", image: "https://imgur.com/ZT6Tixq.jpg" },
-      { name: "Open Space", color: "#9D9E97", image: "https://imgur.com/MrprZ9b.jpg" },
-      { name: "Cozy Nook", color: "#A7A0A8", image: "https://imgur.com/1BTRvqs.jpg" },
-      { name: "Home Office", color: "#8F8985", image: "https://imgur.com/S1GcfEw.jpg" },
-      { name: "Workspace", color: "#B8B1A7", image: "https://imgur.com/c0oLfxB.jpg" },
-      { name: "Main Bath", color: "#9B9C9B", image: "https://imgur.com/KqDHFhI.jpg" },
-      { name: "Bath Details", color: "#AFAAA1", image: "https://imgur.com/A3po2hp.jpg" },
-      { name: "Master Closet", color: "#97918B", image: "https://imgur.com/79I00tM.jpg" },
-      { name: "Wardrobe", color: "#8B8F95", image: "https://imgur.com/VUwpU4A.jpg" },
-      { name: "Master Bath", color: "#7A7B7A", image: "https://imgur.com/XWT6Icj.jpg" }
+      { name: "Art & Vibe", color: "#2E2A27", image: "https://imgur.com/frbFY3D.jpg", isPortrait: false },
+      { name: "Open Living", color: "#3B332D", image: "https://imgur.com/7PvqOpd.jpg", isPortrait: false },
+      { name: "Hallway View", color: "#2B2D2F", image: "https://imgur.com/2kPrZCo.jpg", isPortrait: false },
+      { name: "Entrance", color: "#36312D", image: "https://imgur.com/9tmQPMt.jpg", isPortrait: true },
+      { name: "Living Room", color: "#282A2B", image: "https://imgur.com/iiuMK2Z.jpg", isPortrait: false },
+      { name: "Modern Kitchen", color: "#3A3430", image: "https://imgur.com/gyY3VNO.jpg", isPortrait: false },
+      { name: "Countertop", color: "#33302D", image: "https://imgur.com/ZT6Tixq.jpg", isPortrait: true },
+      { name: "Kitchen Space", color: "#2F3130", image: "https://imgur.com/MrprZ9b.jpg", isPortrait: false },
+      { name: "Cozy Nook", color: "#353236", image: "https://imgur.com/1BTRvqs.jpg", isPortrait: true },
+      { name: "Home Office", color: "#2A2725", image: "https://imgur.com/S1GcfEw.jpg", isPortrait: true },
+      { name: "Workspace", color: "#383431", image: "https://imgur.com/c0oLfxB.jpg", isPortrait: true },
+      { name: "Main Bath", color: "#2C2D2C", image: "https://imgur.com/KqDHFhI.jpg", isPortrait: true },
+      { name: "Bath Details", color: "#33312E", image: "https://imgur.com/A3po2hp.jpg", isPortrait: true },
+      { name: "Master Closet", color: "#2E2A28", image: "https://imgur.com/79I00tM.jpg", isPortrait: false },
+      { name: "Wardrobe", color: "#292A2C", image: "https://imgur.com/VUwpU4A.jpg", isPortrait: true },
+      { name: "Master Bath", color: "#262626", image: "https://imgur.com/XWT6Icj.jpg", isPortrait: true }
     ];
 
     const AUTOPLAY_DELAY = 4000;
@@ -376,16 +395,18 @@
       buildCursor() {
         this.cursorEl = document.createElement("div");
         this.cursorEl.className = "slider__cursor";
-        this.cursorEl.textContent = "+";
+        this.cursorEl.textContent = "VIEW"; // Changed from + to VIEW for better UX
+        this.cursorEl.style.fontSize = "12px";
+        this.cursorEl.style.letterSpacing = "1px";
         this.cursorEl.setAttribute("aria-hidden", "true");
         this.el.appendChild(this.cursorEl);
         gsap.set(this.cursorEl, { xPercent: -50, yPercent: -50, opacity: 0 });
         this.cursorMoveX = gsap.quickTo(this.cursorEl, "x", {
-          duration: 0.5,
+          duration: 0.3, // Faster cursor response
           ease: "power3"
         });
         this.cursorMoveY = gsap.quickTo(this.cursorEl, "y", {
-          duration: 0.5,
+          duration: 0.3,
           ease: "power3"
         });
       }
@@ -437,8 +458,8 @@
         const newChars = [...newLine.querySelectorAll("span")];
         gsap.set(newChars, { y: h * dir });
 
-        const duration = this.reducedMotion ? 0.01 : 1;
-        const stagger = this.reducedMotion ? 0 : 0.04;
+        const duration = this.reducedMotion ? 0.01 : 0.6; // Reduced from 1.0 to 0.6
+        const stagger = this.reducedMotion ? 0 : 0.02; // Reduced from 0.04 to 0.02
 
         const tl = gsap.timeline({
           onComplete: () => {
@@ -456,7 +477,7 @@
             y: -h * dir,
             stagger: stagger,
             duration: duration,
-            ease: "expo.inOut"
+            ease: "power2.inOut" // Changed from expo for slightly softer but fast feel
           },
           0
         );
@@ -467,7 +488,7 @@
             y: 0,
             stagger: stagger,
             duration: duration,
-            ease: "expo.inOut"
+            ease: "power2.inOut"
           },
           0
         );
@@ -478,11 +499,12 @@
       makeSlide(idx) {
         const div = document.createElement("div");
         div.className = "slider__slide";
+        if (SLIDES[idx].isPortrait) {
+          div.classList.add("slider__slide--portrait");
+        }
         const img = document.createElement("img");
         img.src = SLIDES[idx].image;
         img.alt = SLIDES[idx].name;
-        img.width = 600;
-        img.height = 420;
         div.appendChild(img);
         return div;
       }
@@ -560,7 +582,7 @@
           s.step += shift;
         });
 
-        const duration = this.reducedMotion ? 0.01 : 1.2;
+        const duration = this.reducedMotion ? 0.01 : 0.7; // Reduced from 1.2 to 0.7
 
         const tl = gsap.timeline({
           onComplete: () => {
@@ -588,7 +610,7 @@
               opacity: props.opacity,
               filter: "blur(" + props.blur + "px)",
               duration: duration,
-              ease: "power3.inOut"
+              ease: "power2.inOut" // Changed from power3 for snappier movement
             },
             0
           );
@@ -618,7 +640,7 @@
           this.el,
           {
             backgroundColor: SLIDES[nextIdx].color,
-            duration: this.reducedMotion ? 0.01 : 1.2,
+            duration: this.reducedMotion ? 0.01 : 0.7, // Reduced from 1.2 to 0.7
             ease: "power2.inOut"
           },
           0
@@ -629,10 +651,11 @@
       }
 
       bind() {
+        // Reduced throttle from 1800ms to 800ms for more responsive scrolling
         const onWheel = throttle((e) => {
           if (this.animating) return;
           this.go(e.deltaY > 0 ? "next" : "prev");
-        }, 1800);
+        }, 800);
         window.addEventListener("wheel", onWheel, { passive: true });
 
         let touchStartY = 0;
@@ -644,12 +667,13 @@
           { passive: true }
         );
 
+        // Reduced throttle here as well
         const onTouchEnd = throttle((e) => {
           if (this.animating) return;
           const diff = touchStartY - e.changedTouches[0].clientY;
           if (Math.abs(diff) < 40) return;
           this.go(diff > 0 ? "next" : "prev");
-        }, 1800);
+        }, 800);
         window.addEventListener("touchend", onTouchEnd, { passive: true });
 
         window.addEventListener("keydown", (e) => {
