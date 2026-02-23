@@ -50,7 +50,7 @@
       width: 48px;
       height: 48px;
       border-radius: 50%;
-      border: 1px solid rgba(255, 255, 255, 0.6); /* Increased contrast */
+      border: 1px solid rgba(255, 255, 255, 0.4); /* 투명도 증가 (0.6 -> 0.4) */
       background: none;
       cursor: none;
       display: flex;
@@ -62,19 +62,19 @@
     }
 
     .slider__menu:hover {
-      border-color: rgba(255, 255, 255, 1);
+      border-color: rgba(255, 255, 255, 0.8);
     }
 
     .slider__menu span {
       width: 18px;
       height: 1px;
-      background: rgba(255, 255, 255, 0.9); /* Increased contrast */
+      background: rgba(255, 255, 255, 0.6); /* 투명도 증가 */
     }
 
     .slider__label {
       font-size: 11px;
       letter-spacing: 1.5px;
-      color: rgba(255, 255, 255, 0.9); /* Increased contrast from 0.7 */
+      color: rgba(255, 255, 255, 0.6); /* 투명도 증가 (0.9 -> 0.6) */
       text-transform: uppercase;
       display: none;
     }
@@ -101,8 +101,8 @@
     .slider__title {
       font-size: clamp(28px, 5vw, 64px); 
       font-weight: 700;
-      color: rgba(255, 255, 255, 0.95); /* Increased contrast from 0.35 */
-      text-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15); /* Added shadow for readability */
+      color: rgba(255, 255, 255, 0.45); /* 타이틀 투명도 대폭 증가 (0.75 -> 0.45) */
+      text-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05); /* 그림자도 더 연하게 완화 */
       line-height: 1.15;
       letter-spacing: -0.02em;
       overflow: hidden;
@@ -126,7 +126,7 @@
     .slider__description {
       font-size: 10px;
       letter-spacing: 1.2px;
-      color: rgba(255, 255, 255, 0.9); /* Increased contrast from 0.6 */
+      color: rgba(255, 255, 255, 0.6); /* 투명도 증가 (0.9 -> 0.6) */
       line-height: 1.6;
       text-transform: uppercase;
     }
@@ -134,7 +134,7 @@
     .slider__location {
       font-size: 10px;
       letter-spacing: 1.2px;
-      color: rgba(255, 255, 255, 0.9); /* Increased contrast from 0.6 */
+      color: rgba(255, 255, 255, 0.6); /* 투명도 증가 (0.9 -> 0.6) */
       line-height: 1.6;
       text-transform: uppercase;
       margin-top: 12px;
@@ -147,17 +147,17 @@
       width: 80px;
       height: 80px;
       border-radius: 50%;
-      border: 1px solid rgba(255, 255, 255, 0.5); /* Increased contrast */
+      border: 1px solid rgba(255, 255, 255, 0.4); /* 커서 테두리 투명도 증가 */
       display: flex;
       align-items: center;
       justify-content: center;
       pointer-events: none;
       will-change: transform;
       z-index: 10;
-      color: rgba(255, 255, 255, 0.9); /* Increased contrast */
+      color: rgba(255, 255, 255, 0.8); /* 텍스트 투명도 증가 */
       font-size: 24px;
       font-weight: 400;
-      background-color: rgba(0, 0, 0, 0.1); /* Subtle backdrop */
+      background-color: rgba(0, 0, 0, 0.05); /* 배경색 투명하게 */
       backdrop-filter: blur(2px);
     }
 
@@ -183,7 +183,7 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 80%;
+      width: 88%; /* 크기 확대 (기존 80%) */
       aspect-ratio: 16 / 9;
       overflow: hidden;
       will-change: transform, filter, opacity;
@@ -191,9 +191,9 @@
     }
 
     .slider__slide--portrait {
-      width: 65%;
+      width: 75%; /* 크기 확대 (기존 65%) */
       aspect-ratio: 3 / 4;
-      max-height: 80vh;
+      max-height: 85vh; /* 높이 제한 살짝 완화 */
     }
 
     .slider__slide img {
@@ -222,11 +222,11 @@
       }
 
       .slider__slide {
-        width: 85%;
+        width: 92%; /* 크기 확대 (기존 85%) */
       }
 
       .slider__slide--portrait {
-        width: 50%;
+        width: 60%; /* 크기 확대 (기존 50%) */
       }
 
       .slider__cursor {
@@ -258,11 +258,11 @@
       }
 
       .slider__slide {
-        width: 90%;
+        width: 96%; /* 데스크탑 크기 최대화 (기존 90%) */
       }
 
       .slider__slide--portrait {
-        width: 45%; /* 데스크탑 화면에서 보기 좋게 폭을 조절 */
+        width: 55%; /* 데스크탑 세로사진 크기 확대 (기존 45%) */
       }
     }
 
